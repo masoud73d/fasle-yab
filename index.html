@@ -4,210 +4,657 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10172e">
-<title>فاصله‌یاب هوشمند ایران</title>
+<meta name="theme-color" content="#f5f3ec">
+<title>ایران‌گرد | فاصله‌یاب هوشمند</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
 :root{
- --bg:#10172e;--panel:rgba(255,255,255,.075);
- --border:rgba(255,255,255,.13);
- --blue:#438cff;--purple:#895cff;
- --text:#f5f7ff;--muted:#a2aec8;
+ --bg:#f5f3ec;
+ --white:#fff;
+ --ink:#172e3e;
+ --navy:#183c50;
+ --teal:#398e87;
+ --mint:#dcefe8;
+ --gold:#d5a85d;
+ --muted:#829096;
+ --line:#e9e9e1;
+ --shadow:0 15px 45px #233e5010;
 }
+
 *{box-sizing:border-box}
 body{
- margin:0;min-height:100vh;padding:17px;color:var(--text);
+ margin:0;
+ background:var(--bg);
+ color:var(--ink);
  font-family:Vazirmatn,Tahoma,sans-serif;
- background:radial-gradient(ellipse at 10% 0%,#243d72,transparent 43%),
- radial-gradient(ellipse at 90% 90%,#34235e,transparent 43%),var(--bg);
+ min-height:100vh;
+ padding:0 0 35px;
 }
-.container{max-width:680px;margin:20px auto}
-.header{text-align:center;margin-bottom:24px}
-.logo{
- width:65px;height:65px;margin:auto;border-radius:20px;
- display:grid;place-items:center;font-size:31px;
- background:linear-gradient(135deg,var(--blue),var(--purple));
- box-shadow:0 10px 35px #438cff55
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+.container{max-width:720px;margin:auto;padding:0 17px}
+
+/* Header */
+.hero{
+ position:relative;
+ overflow:hidden;
+ background:linear-gradient(135deg,#17374c,#245d68 65%,#398e87);
+ color:white;
+ padding:30px 22px 40px;
+ border-radius:0 0 34px 34px;
+ min-height:280px;
+ box-shadow:0 15px 40px #1d48552c;
 }
-h1{font-size:23px;margin:13px 0 5px}
-.subtitle{font-size:12px;color:var(--muted)}
+.hero:before{
+ content:"";
+ position:absolute;
+ width:290px;height:290px;
+ border:1px solid #ffffff17;
+ border-radius:50%;
+ left:-110px;top:-150px;
+ box-shadow:0 0 0 30px #ffffff08,0 0 0 65px #ffffff06;
+}
+.hero:after{
+ content:"";
+ position:absolute;
+ width:180px;height:180px;
+ border:1px solid #ffffff16;
+ border-radius:50%;
+ right:-90px;bottom:-110px;
+ box-shadow:0 0 0 25px #ffffff08;
+}
+.hero-content{position:relative;z-index:2}
+.topline{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+.brand{
+ display:flex;align-items:center;gap:10px;
+ font-size:13px;font-weight:800;
+}
+.brand-icon{
+ width:39px;height:39px;
+ display:grid;place-items:center;
+ background:#ffffff19;
+ border:1px solid #ffffff28;
+ border-radius:13px;
+ font-size:21px;
+}
+.live{
+ font-size:10px;
+ background:#ffffff17;
+ padding:7px 12px;
+ border-radius:20px;
+ border:1px solid #ffffff25;
+ color:#d8f2e8;
+}
+.hero h1{
+ font-size:27px;
+ line-height:1.7;
+ margin:25px 0 3px;
+ font-weight:900;
+}
+.hero p{
+ color:#d0e2e1;
+ font-size:12px;
+ margin:0;
+ line-height:2;
+}
+.hero-art{
+ height:100px;
+ position:relative;
+ margin-top:15px;
+}
+.art-circle{
+ position:absolute;
+ width:85px;height:85px;
+ left:13px;top:0;
+ border:1px solid #ffffff27;
+ border-radius:50%;
+ display:grid;place-items:center;
+ font-size:37px;
+ background:#ffffff0b;
+}
+.route-line{
+ position:absolute;
+ top:42px;
+ right:15px;left:110px;
+ height:2px;
+ background:repeating-linear-gradient(90deg,#b8e7d9 0 7px,transparent 7px 14px);
+}
+.pin{
+ position:absolute;
+ top:25px;
+ font-size:24px;
+}
+.pin.start{right:12px}
+.pin.end{left:110px}
+.art-label{
+ position:absolute;
+ right:14px;top:61px;
+ color:#d6e9e1;font-size:9px;
+}
+.art-label.end{right:auto;left:91px}
+
+/* Main */
+.main{margin-top:-20px;position:relative;z-index:3}
 .panel{
- background:var(--panel);border:1px solid var(--border);
- border-radius:22px;padding:19px;margin-bottom:15px;
- backdrop-filter:blur(15px)
+ background:var(--white);
+ border:1px solid #ffffff;
+ border-radius:25px;
+ padding:21px;
+ margin-bottom:16px;
+ box-shadow:var(--shadow);
 }
-.tabs{display:flex;gap:9px;margin-bottom:20px}
+.panel-title{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-bottom:18px;
+}
+.panel-title h2{
+ font-size:15px;
+ margin:0;
+ font-weight:900;
+ color:var(--navy);
+}
+.panel-title small{
+ color:#9ba6a4;
+ font-size:10px;
+}
+.tabs{
+ display:flex;
+ background:#f1f4ef;
+ padding:5px;
+ border-radius:15px;
+ gap:5px;
+}
 .tab{
- flex:1;padding:13px 5px;border:1px solid var(--border);
- background:#ffffff09;color:var(--muted);border-radius:13px;
- font-family:inherit;font-size:13px;cursor:pointer
+ flex:1;
+ border:0;
+ background:transparent;
+ color:#87938e;
+ padding:12px 4px;
+ font-size:12px;
+ font-weight:700;
+ border-radius:11px;
+ transition:.25s;
 }
 .tab.active{
- color:white;border-color:transparent;
- background:linear-gradient(110deg,var(--blue),var(--purple))
+ color:white;
+ background:linear-gradient(120deg,#1d4659,#398e87);
+ box-shadow:0 5px 13px #285f6430;
 }
-.field{margin:15px 0}
-label{display:block;font-size:13px;margin-bottom:8px;color:#d5def5}
+.field{margin:17px 0}
+.label-row{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:9px;
+}
+label{
+ font-size:12px;
+ font-weight:800;
+ color:#425b66;
+}
+.label-icon{
+ width:27px;height:27px;
+ display:grid;place-items:center;
+ border-radius:9px;
+ background:#edf5f1;
+ font-size:14px;
+}
 select,input{
- width:100%;padding:13px;border-radius:12px;
- border:1px solid var(--border);background:#182440;
- color:white;font-family:inherit;font-size:14px;outline:none
+ width:100%;
+ height:49px;
+ border-radius:13px;
+ padding:0 13px;
+ border:1px solid #e5eae5;
+ background:#fafbf8;
+ outline:none;
+ color:#263e4c;
+ font-size:12px;
+ transition:.2s;
 }
-select:focus,input:focus{border-color:var(--blue)}
-select option{background:#182440;color:white}
-.swap{text-align:center;margin:0 0 5px}
-.swap button{
- width:43px;height:43px;border-radius:14px;
- border:1px solid var(--border);
- background:#ffffff12;color:white;font-size:22px;cursor:pointer
+select:focus,input:focus{
+ border-color:#55a99c;
+ box-shadow:0 0 0 3px #398e8715;
+ background:white;
 }
+select option{background:white;color:#263e4c}
+input::placeholder{color:#aab3ae}
+.searchbox{position:relative}
+.searchbox input{padding-right:39px}
+.search-icon{
+ position:absolute;
+ right:13px;top:14px;
+ font-size:16px;color:#98a7a0;
+ pointer-events:none;
+}
+.location-card{
+ background:#fbfcf9;
+ border:1px solid #e9ede7;
+ border-radius:17px;
+ padding:14px;
+ margin-top:10px;
+}
+.location-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:11px;
+}
+.location-name{
+ font-size:11px;font-weight:800;color:#57717a;
+ display:flex;align-items:center;gap:7px;
+}
+.location-dot{
+ width:9px;height:9px;border-radius:50%;
+ background:#48a88b;
+ box-shadow:0 0 0 4px #48a88b20;
+}
+.location-dot.end{background:#d6a85e;box-shadow:0 0 0 4px #d6a85e20}
+.swap-row{
+ height:18px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative;
+}
+.swap-row:before{
+ content:"";
+ position:absolute;
+ right:23px;left:23px;
+ height:1px;background:#e9eee8;
+}
+.swap{
+ position:relative;
+ width:43px;height:43px;
+ border:5px solid white;
+ border-radius:50%;
+ background:#e8f2ed;
+ color:#368a81;
+ font-size:22px;
+ display:grid;place-items:center;
+ box-shadow:0 3px 12px #1e4e5010;
+ transition:.3s;
+}
+.swap:active{transform:rotate(180deg)}
 .primary{
- width:100%;padding:15px;border:0;border-radius:14px;
- color:white;font-family:inherit;font-size:15px;font-weight:700;
- background:linear-gradient(110deg,var(--blue),var(--purple));
- cursor:pointer;margin-top:12px
+ width:100%;
+ height:55px;
+ margin-top:12px;
+ border:0;
+ border-radius:15px;
+ color:white;
+ font-size:14px;
+ font-weight:900;
+ background:linear-gradient(110deg,#1c465a,#398e87);
+ box-shadow:0 8px 20px #286c6730;
+ transition:.2s;
 }
-.primary:disabled{opacity:.5}
-.status{text-align:center;color:var(--muted);font-size:12px;line-height:2;margin-top:13px}
-.results{display:none}
-.route{text-align:center;padding:15px 5px 20px;border-bottom:1px solid var(--border)}
-.route-names{font-size:13px;color:#d8e1f9;line-height:2}
-.distance{
- font-size:39px;font-weight:800;margin:12px 0 0;
- background:linear-gradient(90deg,#6bb7ff,#c09aff);
- -webkit-background-clip:text;color:transparent
+.primary:active{transform:scale(.98)}
+.primary:disabled{opacity:.55}
+.status{
+ text-align:center;
+ font-size:11px;
+ line-height:2;
+ color:#899891;
+ margin-top:14px;
 }
-.unit{font-size:12px;color:var(--muted)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:16px}
+.about-btn{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:7px;
+ width:100%;
+ margin-top:13px;
+ padding:11px;
+ border:1px solid #edf0e9;
+ border-radius:12px;
+ color:#637a7b;
+ background:#fafbf8;
+ font-size:11px;
+ font-weight:700;
+}
+
+/* Results */
+.results{display:none;animation:show .5s ease}
+@keyframes show{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
+}
+.result-head{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-bottom:16px;
+}
+.result-head h2{font-size:15px;margin:0}
+.success{
+ font-size:10px;
+ color:#328a6f;
+ background:#eaf6ef;
+ padding:6px 11px;
+ border-radius:20px;
+}
+.distance-card{
+ position:relative;
+ overflow:hidden;
+ padding:23px 18px;
+ text-align:center;
+ border-radius:21px;
+ color:white;
+ background:linear-gradient(140deg,#183c50,#286e70);
+}
+.distance-card:after{
+ content:"";
+ position:absolute;
+ width:180px;height:180px;
+ border:1px solid #ffffff15;
+ border-radius:50%;
+ left:-70px;top:-100px;
+ box-shadow:0 0 0 25px #ffffff08,0 0 0 55px #ffffff05;
+}
+.distance-card small{color:#c6dcd6;font-size:11px}
+.distance-card strong{
+ display:block;
+ font-size:44px;
+ font-weight:900;
+ margin:8px 0 0;
+ position:relative;z-index:1;
+}
+.distance-card .unit{color:#c8e1d9;font-size:11px}
+.route-names{
+ font-size:11px;
+ color:#d9e9e4;
+ margin-top:8px;
+ line-height:2;
+ position:relative;z-index:1;
+}
+.stats{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:11px;
+ margin-top:13px;
+}
 .stat{
- background:#ffffff0a;border:1px solid var(--border);
- border-radius:15px;padding:15px;text-align:center
+ background:#f8faf6;
+ border:1px solid #e9eee8;
+ border-radius:17px;
+ padding:17px 9px;
+ text-align:center;
 }
-.stat .icon{font-size:23px}
-.stat strong{display:block;font-size:19px;margin:7px 0}
-.stat small{color:var(--muted);font-size:11px}
+.stat-icon{
+ width:43px;height:43px;
+ border-radius:14px;
+ background:#e9f3ee;
+ display:grid;place-items:center;
+ font-size:22px;
+ margin:auto;
+}
+.stat strong{
+ display:block;
+ font-size:17px;
+ margin:9px 0 5px;
+ color:#274d5b;
+}
+.stat small{font-size:10px;color:#8c9a96}
+.map-title{
+ display:flex;
+ align-items:center;
+ gap:8px;
+ margin:20px 0 10px;
+ font-size:13px;font-weight:800;
+}
 .map{
- width:100%;height:260px;border:0;border-radius:15px;
- margin-top:16px;background:#182440
+ width:100%;
+ height:260px;
+ border:1px solid #e5ebe5;
+ border-radius:17px;
+ background:#f3f5ef;
 }
 .maplink{
- display:block;text-align:center;text-decoration:none;
- color:white;background:#ffffff12;border:1px solid var(--border);
- padding:13px;border-radius:12px;margin-top:12px;font-size:13px
+ display:block;
+ text-align:center;
+ text-decoration:none;
+ background:#eaf3ed;
+ color:#286b68;
+ padding:14px;
+ margin-top:12px;
+ border-radius:13px;
+ font-size:12px;
+ font-weight:800;
 }
-.note{font-size:11px;color:var(--muted);line-height:2;margin-top:14px}
-.footer{text-align:center;color:var(--muted);font-size:11px;padding:13px}
-.about-btn{
- display:block;margin:12px auto 0;padding:9px 18px;
- color:#dce7ff;background:#ffffff0b;
- border:1px solid var(--border);border-radius:12px;
- font-family:inherit;cursor:pointer;font-size:12px
+.note{
+ background:#f8f8f3;
+ border-radius:13px;
+ padding:12px;
+ margin-top:15px;
+ color:#87948d;
+ font-size:10px;
+ line-height:2.2;
+}
+
+/* Footer & modal */
+.footer{
+ text-align:center;
+ color:#a0a9a0;
+ font-size:10px;
+ padding:20px 0;
 }
 .modal{
- display:none;position:fixed;inset:0;z-index:10;
- background:#000b;align-items:center;justify-content:center;padding:20px
+ display:none;
+ position:fixed;inset:0;
+ z-index:20;
+ background:#132b36a8;
+ backdrop-filter:blur(8px);
+ align-items:center;
+ justify-content:center;
+ padding:20px;
 }
 .modal.show{display:flex}
 .modalbox{
- width:100%;max-width:380px;background:#192541;
- border:1px solid var(--border);border-radius:22px;
- padding:25px;text-align:center;box-shadow:0 15px 60px #0008
+ width:100%;max-width:370px;
+ background:#fff;
+ border-radius:25px;
+ padding:28px;
+ text-align:center;
+ box-shadow:0 20px 70px #0003;
+ animation:show .3s ease;
 }
 .avatar{
- width:70px;height:70px;margin:auto;border-radius:50%;
- display:grid;place-items:center;font-size:29px;
- background:linear-gradient(135deg,var(--blue),var(--purple))
+ width:76px;height:76px;
+ margin:auto;
+ border-radius:25px;
+ display:grid;place-items:center;
+ font-size:32px;
+ background:linear-gradient(135deg,#1c465a,#398e87);
+ color:white;
 }
-.modalbox h2{font-size:19px;margin:13px 0}
-.modalbox p{font-size:13px;color:var(--muted);line-height:2}
+.modalbox h2{font-size:18px;color:#23495a}
+.modalbox p{font-size:12px;line-height:2.2;color:#87938e}
+.modalbox strong{color:#315d66}
 .close{
- border:0;border-radius:12px;padding:11px 30px;
- background:linear-gradient(110deg,var(--blue),var(--purple));
- color:white;font-family:inherit;cursor:pointer;margin-top:10px
+ border:0;border-radius:12px;
+ padding:12px 38px;
+ color:white;background:#24586a;
+ font-weight:700;
 }
 .spinner{
- width:18px;height:18px;border:3px solid #ffffff40;
- border-top-color:white;border-radius:50%;display:inline-block;
- vertical-align:middle;animation:spin .8s linear infinite;margin-left:7px
+ width:17px;height:17px;
+ border:3px solid #ffffff55;
+ border-top-color:white;
+ border-radius:50%;
+ display:inline-block;
+ vertical-align:middle;
+ animation:spin .8s linear infinite;
+ margin-left:7px;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:420px){
+ .hero{min-height:265px;padding:25px 18px 38px}
+ .hero h1{font-size:24px}
+ .panel{padding:17px}
+ .distance-card strong{font-size:39px}
+ .map{height:225px}
+}
 </style>
 </head>
-<body>
-<div class="container">
 
-<header class="header">
- <div class="logo">🗺️</div>
- <h1>فاصله‌یاب هوشمند ایران</h1>
- <div class="subtitle">محاسبه مسافت و زمان سفر بین شهرها و شهرستان‌های ایران</div>
+<body>
+
+<header class="hero">
+ <div class="container hero-content">
+
+  <div class="topline">
+   <div class="brand">
+    <div class="brand-icon">🧭</div>
+    <span>IRAN GAR | ایران‌گرد</span>
+   </div>
+   <div class="live">● سامانه مسیریابی</div>
+  </div>
+
+  <h1>سفر خودت رو<br>هوشمندانه برنامه‌ریزی کن!</h1>
+  <p>فاصله، زمان و مسیر جاده‌ای شهرهای ایران</p>
+
+  <div class="hero-art">
+   <div class="route-line"></div>
+   <div class="pin start">📍</div>
+   <div class="pin end">🏁</div>
+   <div class="art-circle">🚘</div>
+   <span class="art-label">مبدأ</span>
+   <span class="art-label end">مقصد</span>
+  </div>
+
+ </div>
 </header>
 
+<div class="container main">
+
 <section class="panel">
+
+ <div class="panel-title">
+  <h2>✦ انتخاب مسیر سفر</h2>
+  <small>مبدأ و مقصد را مشخص کن</small>
+ </div>
 
  <div class="tabs">
   <button class="tab active" id="cityTab" onclick="changeMode('city')">🏙️ شهر به شهر</button>
   <button class="tab" id="countyTab" onclick="changeMode('county')">📍 شهرستان به شهرستان</button>
  </div>
 
- <div class="field">
-  <label>استان مبدأ</label>
-  <select id="province1"><option value="">در حال بارگذاری...</option></select>
+ <div class="location-card">
+
+  <div class="location-head">
+   <div class="location-name"><span class="location-dot"></span> نقطه شروع سفر</div>
+   <span style="font-size:10px;color:#a0aaa2">مبدأ</span>
+  </div>
+
+  <div class="field">
+   <div class="label-row">
+    <label>استان مبدأ</label>
+    <span class="label-icon">🗺️</span>
+   </div>
+   <select id="province1"><option value="">در حال بارگذاری...</option></select>
+  </div>
+
+  <div class="field">
+   <div class="label-row">
+    <label id="originLabel">شهر مبدأ</label>
+   </div>
+   <div class="searchbox">
+    <span class="search-icon">⌕</span>
+    <input id="originSearch" placeholder="جستجوی نام شهر...">
+   </div>
+   <div style="height:8px"></div>
+   <select id="origin"><option value="">ابتدا استان را انتخاب کنید</option></select>
+  </div>
+
  </div>
 
- <div class="field">
-  <label id="originLabel">شهر مبدأ</label>
-  <input id="originSearch" placeholder="جستجوی نام شهر...">
-  <select id="origin"><option value="">ابتدا استان را انتخاب کنید</option></select>
+ <div class="swap-row">
+  <button class="swap" onclick="swapLocations()" title="جابجایی مبدأ و مقصد">⇅</button>
  </div>
 
- <div class="swap">
-  <button onclick="swapLocations()" title="جابجایی">⇅</button>
- </div>
+ <div class="location-card">
 
- <div class="field">
-  <label>استان مقصد</label>
-  <select id="province2"><option value="">در حال بارگذاری...</option></select>
- </div>
+  <div class="location-head">
+   <div class="location-name"><span class="location-dot end"></span> نقطه پایان سفر</div>
+   <span style="font-size:10px;color:#a0aaa2">مقصد</span>
+  </div>
 
- <div class="field">
-  <label id="destinationLabel">شهر مقصد</label>
-  <input id="destinationSearch" placeholder="جستجوی نام شهر...">
-  <select id="destination"><option value="">ابتدا استان را انتخاب کنید</option></select>
+  <div class="field">
+   <div class="label-row">
+    <label>استان مقصد</label>
+    <span class="label-icon">🏁</span>
+   </div>
+   <select id="province2"><option value="">در حال بارگذاری...</option></select>
+  </div>
+
+  <div class="field">
+   <div class="label-row">
+    <label id="destinationLabel">شهر مقصد</label>
+   </div>
+   <div class="searchbox">
+    <span class="search-icon">⌕</span>
+    <input id="destinationSearch" placeholder="جستجوی نام شهر...">
+   </div>
+   <div style="height:8px"></div>
+   <select id="destination"><option value="">ابتدا استان را انتخاب کنید</option></select>
+  </div>
+
  </div>
 
  <button class="primary" id="calculate" onclick="calculateRoute()">
-  محاسبه فاصله و زمان سفر
+  🧭 محاسبه مسیر و مسافت سفر
  </button>
 
  <div class="status" id="status">در حال دریافت اطلاعات...</div>
 
- <button class="about-btn" onclick="showAbout()">ⓘ درباره من</button>
+ <button class="about-btn" onclick="showAbout()">ⓘ درباره توسعه‌دهنده</button>
+
 </section>
 
 <section class="panel results" id="results">
- <div class="route">
+
+ <div class="result-head">
+  <h2>✦ گزارش مسیر شما</h2>
+  <span class="success">✓ محاسبه انجام شد</span>
+ </div>
+
+ <div class="distance-card">
+  <small>مسافت جاده‌ای بین مبدأ و مقصد</small>
+  <strong id="distance">--</strong>
+  <div class="unit">کیلومتر</div>
   <div class="route-names" id="routeNames"></div>
-  <div class="distance" id="distance">--</div>
-  <div class="unit">کیلومتر مسافت جاده‌ای</div>
  </div>
 
  <div class="stats">
+
   <div class="stat">
-   <div class="icon">🚗</div>
+   <div class="stat-icon">🚘</div>
    <strong id="duration">--</strong>
    <small>زمان تقریبی رانندگی</small>
   </div>
+
   <div class="stat">
-   <div class="icon">📏</div>
+   <div class="stat-icon">📐</div>
    <strong id="direct">--</strong>
    <small>فاصله مستقیم هوایی</small>
   </div>
+
  </div>
 
+ <div class="map-title">🌍 نقشه مسیر سفر</div>
  <iframe class="map" id="map" loading="lazy" title="نقشه"></iframe>
 
  <a class="maplink" id="maplink" target="_blank" rel="noopener">
-  🗺️ مشاهده مسیر و راهنمای رانندگی روی نقشه
+  🗺️ مشاهده مسیر و راهنمای رانندگی
  </a>
 
  <div class="note">
@@ -215,24 +662,22 @@ select option{background:#182440;color:white}
   فاصله شهرستان‌ها بر اساس مراکز اداری آن‌ها محاسبه می‌شود.
   مختصات شهرستان‌ها از داده‌های تکمیلی GeoNames گرفته شده‌اند.
  </div>
+
 </section>
 
-<div class="footer">فاصله‌یاب ایران | داده‌های تقسیمات کشوری ۱۴۰۴</div>
+<div class="footer">
+ ایران‌گرد | طراحی و توسعه masoud delavar
+</div>
+
 </div>
 
 <div class="modal" id="aboutModal" onclick="if(event.target===this)hideAbout()">
  <div class="modalbox">
   <div class="avatar">👨🏻‍💻</div>
   <h2>درباره توسعه‌دهنده</h2>
-  <p>
-   نام توسعه‌دهنده:<br>
-   <strong style="color:white">masoud delavar</strong>
-  </p>
-  <p>
-   ایمیل:<br>
-   <strong style="color:white">masoud0098d@gmail.com</strong>
-  </p>
-  <p>طراحی و توسعه فاصله‌یاب هوشمند ایران</p>
+  <p>نام توسعه‌دهنده:<br><strong>masoud delavar</strong></p>
+  <p>ایمیل:<br><strong>masoud0098d@gmail.com</strong></p>
+  <p>طراحی و توسعه سامانه ایران‌گرد</p>
   <button class="close" onclick="hideAbout()">بستن</button>
  </div>
 </div>
@@ -250,11 +695,13 @@ const $=id=>document.getElementById(id);
 function fa(n){
  return Number(n).toLocaleString('fa-IR',{maximumFractionDigits:1});
 }
+
 function norm(s){
  return String(s||'').replace(/ي/g,'ی').replace(/ك/g,'ک')
  .replace(/ۀ/g,'ه').replace(/\u200c/g,' ')
  .replace(/\s+/g,' ').trim().toLowerCase();
 }
+
 function setStatus(t){$('status').textContent=t}
 
 async function getJSON(file){
@@ -307,9 +754,7 @@ function fillProvinces(){
  });
 }
 
-function items(){
- return mode==='city'?cities:counties;
-}
+function items(){return mode==='city'?cities:counties}
 
 function provinceName(id){
  return provinces.find(p=>String(p.id)===String(id))?.name||'';
@@ -345,8 +790,9 @@ function changeMode(m){
 
  $('originLabel').textContent=m==='city'?'شهر مبدأ':'شهرستان مبدأ';
  $('destinationLabel').textContent=m==='city'?'شهر مقصد':'شهرستان مقصد';
- $('originSearch').placeholder=m==='city'?'جستجوی شهر...':'جستجوی شهرستان...';
- $('destinationSearch').placeholder=m==='city'?'جستجوی شهر...':'جستجوی شهرستان...';
+
+ $('originSearch').placeholder=m==='city'?'جستجوی نام شهر...':'جستجوی نام شهرستان...';
+ $('destinationSearch').placeholder=m==='city'?'جستجوی نام شهر...':'جستجوی نام شهرستان...';
 
  $('originSearch').value='';
  $('destinationSearch').value='';
@@ -362,10 +808,12 @@ $('province1').addEventListener('change',()=>{
  $('originSearch').value='';
  renderSelect('origin');
 });
+
 $('province2').addEventListener('change',()=>{
  $('destinationSearch').value='';
  renderSelect('destination');
 });
+
 $('originSearch').addEventListener('input',e=>renderSelect('origin',e.target.value));
 $('destinationSearch').addEventListener('input',e=>renderSelect('destination',e.target.value));
 
@@ -407,11 +855,9 @@ function coordsOf(item){
  return {lat,lon};
 }
 
-// مکان‌یابی شهر: دو سرویس مستقل با کنترل نام و استان
 async function geocodeCity(item){
  const query=`${item.name}, ${provinceName(item.province_id)}, Iran`;
 
- // سرویس اول: Nominatim
  try{
   const url='https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&countrycodes=ir&q='+
     encodeURIComponent(query);
@@ -430,11 +876,8 @@ async function geocodeCity(item){
   if(match){
    return {lat:Number(match.lat),lon:Number(match.lon)};
   }
- }catch(e){
-  console.warn('Nominatim:',e);
- }
+ }catch(e){console.warn('Nominatim:',e)}
 
- // سرویس دوم: Photon
  try{
   const url='https://photon.komoot.io/api/?limit=10&lang=fa&q='+
     encodeURIComponent(query);
@@ -456,9 +899,7 @@ async function geocodeCity(item){
    const [lon,lat]=match.geometry.coordinates;
    return {lat:Number(lat),lon:Number(lon)};
   }
- }catch(e){
-  console.warn('Photon:',e);
- }
+ }catch(e){console.warn('Photon:',e)}
 
  throw Error(`مختصات ${item.name} پیدا نشد. ممکن است سرویس مکان‌یابی در شبکه شما مسدود باشد.`);
 }
@@ -495,6 +936,7 @@ async function calculateRoute(){
   setStatus('لطفاً مبدأ و مقصد را انتخاب کنید');
   return;
  }
+
  if(String(a.id)===String(b.id)){
   setStatus('مبدأ و مقصد یکسان هستند');
   return;
@@ -515,9 +957,7 @@ async function calculateRoute(){
    B=coordsOf(b);
    if(!A||!B)throw Error('مختصات مرکز یکی از شهرستان‌ها در فایل داده موجود نیست');
   }else{
-   [A,B]=await Promise.all([
-    geocodeCity(a),geocodeCity(b)
-   ]);
+   [A,B]=await Promise.all([geocodeCity(a),geocodeCity(b)]);
   }
 
   if(![A.lat,A.lon,B.lat,B.lon].every(Number.isFinite))
@@ -531,7 +971,6 @@ async function calculateRoute(){
   if(!response.ok)throw Error('سرویس مسیر‌یابی در دسترس نیست');
 
   const result=await response.json();
-
   if(result.code!=='Ok'||!result.routes?.length)
    throw Error('مسیر جاده‌ای برای این دو نقطه پیدا نشد');
 
@@ -561,7 +1000,6 @@ async function calculateRoute(){
 
   $('results').style.display='block';
   $('results').scrollIntoView({behavior:'smooth'});
-
   setStatus('محاسبه با موفقیت انجام شد');
 
  }catch(e){
@@ -569,19 +1007,24 @@ async function calculateRoute(){
   setStatus(e.message||'خطا در محاسبه مسیر');
  }finally{
   btn.disabled=false;
-  btn.textContent='محاسبه فاصله و زمان سفر';
+  btn.textContent='🧭 محاسبه مسیر و مسافت سفر';
  }
 }
 
 function showAbout(){
  $('aboutModal').classList.add('show');
 }
+
 function hideAbout(){
  $('aboutModal').classList.remove('show');
 }
 
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape')hideAbout();
+});
+
 loadData();
 </script>
+
 </body>
 </html>
-
