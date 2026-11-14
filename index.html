@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -237,9 +238,6 @@ select option{background:#182440;color:white}
 </div>
 
 <script>
-const BASE='https://raw.githubusercontent.com/sajaddp/list-of-cities-in-Iran/main/dist/json/';
-const CDN='https://cdn.jsdelivr.net/gh/sajaddp/list-of-cities-in-Iran@main/dist/json/';
-
 let mode='city';
 let provinces=[],cities=[],counties=[],centers=[];
 let ready=false;
@@ -256,21 +254,17 @@ function norm(s){
 }
 function setStatus(t){$('status').textContent=t}
 
+// دریافت مستقیم اطلاعات از فایل‌های داخل همین مخزن
 async function getJSON(file){
- let errors=[];
- for(const base of [BASE,CDN]){
-  try{
-   const r=await fetch(base+file,{cache:'no-store'});
-   if(!r.ok)throw Error('HTTP '+r.status);
-   return await r.json();
-  }catch(e){errors.push(e.message)}
- }
- throw Error('دریافت '+file+' ناموفق بود: '+errors.join(' / '));
+ const r=await fetch('./'+file,{cache:'no-store'});
+ if(!r.ok)throw Error('HTTP '+r.status+' در دریافت '+file);
+ return await r.json();
 }
 
 async function loadData(){
  try{
   setStatus('در حال دریافت فهرست کامل ایران...');
+
   const d=await Promise.all([
    getJSON('provinces.json'),
    getJSON('cities.json'),
@@ -292,9 +286,10 @@ async function loadData(){
   renderSelect('destination');
 
   setStatus(`آماده استفاده | ${fa(cities.length)} شهر و ${fa(counties.length)} شهرستان`);
+
  }catch(e){
   console.error(e);
-  setStatus('خطا در دریافت اطلاعات: '+e.message+' | اینترنت را بررسی کنید.');
+  setStatus('خطا در دریافت اطلاعات: '+e.message+' | نام فایل‌ها و اتصال اینترنت را بررسی کنید.');
  }
 }
 
@@ -524,7 +519,6 @@ async function calculateRoute(){
 
   setStatus('مختصات پیدا شد؛ در حال محاسبه مسیر جاده‌ای...');
 
-  // تلاش برای اتصال به دو سرور مسیریابی
   const coordinates=`${A.lon},${A.lat};${B.lon},${B.lat}`;
 
   const routingUrls=[
