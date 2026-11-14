@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -525,15 +524,41 @@ async function calculateRoute(){
 
   setStatus('مختصات پیدا شد؛ در حال محاسبه مسیر جاده‌ای...');
 
-  const url=`https://router.project-osrm.org/route/v1/driving/${A.lon},${A.lat};${B.lon},${B.lat}?overview=false&alternatives=false`;
+  // تلاش برای اتصال به دو سرور مسیریابی
+  const coordinates=`${A.lon},${A.lat};${B.lon},${B.lat}`;
 
-  const response=await fetch(url);
-  if(!response.ok)throw Error('سرویس مسیر‌یابی در دسترس نیست');
+  const routingUrls=[
+   `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=false&alternatives=false`,
+   `https://routing.openstreetmap.de/routed-car/route/v1/driving/${coordinates}?overview=false&alternatives=false`
+  ];
 
-  const result=await response.json();
+  let result=null;
+  const routingErrors=[];
 
-  if(result.code!=='Ok'||!result.routes?.length)
-   throw Error('مسیر جاده‌ای برای این دو نقطه پیدا نشد');
+  for(const url of routingUrls){
+   try{
+    const response=await fetch(url);
+
+    if(!response.ok)
+     throw Error('HTTP '+response.status);
+
+    const data=await response.json();
+
+    if(data.code==='Ok'&&data.routes?.length){
+     result=data;
+     break;
+    }
+
+    throw Error(data.message||data.code||'پاسخ نامعتبر');
+
+   }catch(error){
+    routingErrors.push(error.message||'خطای شبکه');
+   }
+  }
+
+  if(!result){
+   throw Error('اتصال به سرویس محاسبه مسیر برقرار نشد. اتصال اینترنت یا فیلترشکن را بررسی کنید.');
+  }
 
   const route=result.routes[0];
   const km=route.distance/1000;
